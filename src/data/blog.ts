@@ -20,6 +20,7 @@ function getMDXFiles(dir: string) {
 
 export async function markdownToHTML(markdown: string) {
   const p = await unified()
+    // @ts-ignore
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypePrettyCode, {
@@ -30,6 +31,7 @@ export async function markdownToHTML(markdown: string) {
       },
       keepBackground: false,
     })
+    // @ts-ignore
     .use(rehypeStringify)
     .process(markdown);
 

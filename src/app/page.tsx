@@ -103,7 +103,7 @@ export default function Page() {
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">Leadership & Community</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">I like organizing things</h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">Since I was university, I've enjoyed organizing events and building community wherever I have the fortune to be. Whether it's organizing neighborhood cafes, a JavaScript meetup or a Model UN conference, I am reminded of the phrase that 'to go far, go alone. To go far, go together.'</p>
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">Since I was university, I have enjoyed organizing events and building community wherever I have the fortune to be. Whether organizing neighborhood cafes, a JavaScript meetup or a Model UN conference, I am reminded of the phrase that to go far, go alone. To go far, go together.</p>
               </div>
             </div>
           </BlurFade>
