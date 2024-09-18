@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { CodeIcon, HomeIcon, NotebookIcon, PencilLine } from "lucide-react";
+import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
   name: "Michael Nightingale",
@@ -8,7 +8,7 @@ export const DATA = {
   location: "Seattle, WA",
   description: "Software Engineer, Writer and Maker. I love traveling the world with April & writing software that makes our world just a little bit better.",
   summary: "In January 2024, I left my job at Cedar AI to fulfill my dream of traveling the world and writing my first book, [Journey to the East](https://www.amazon.com/dp/B0CZDF9MNW). [I graduated from college in three years](/#education) and after a few years in the workforce, made a strategic decision in 2017 to enter the world of software engineering. It's worked out really well!",
-  avatarUrl: "/me.png",
+  avatarUrl: "/me-singapore.png",
   skills: ["React", "Flutter", "Typescript", "Node.js", "Python", "Next.js", "Postgres", "MongoDB", "Serverless", "UX", "CI/CD"],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -37,26 +37,26 @@ export const DATA = {
         icon: Icons.youtube,
         navbar: true,
       },
-      email: {
-        name: "Send Email",
-        url: "mikhael@hey.com",
-        icon: Icons.email,
-        navbar: true,
-      },
+      // Email: {
+      //   name: "Send Email",
+      //   url: "mikhael@hey.com",
+      //   icon: Icons.email,
+      //   navbar: true,
+      // },
     },
   },
 
   work: [
     {
       company: "Expatria",
-      href: "https://expatria.finance",
+      href: "https://expatriaonline.com",
       badges: [],
       location: "Remote Sabbatical",
-      title: "Software Engineer, Benevelont Dictator for Life",
+      title: "Software Engineer, Founder",
       logoUrl: "/exp-logo.webp",
       start: "May 2024",
       end: "Oct 2024",
-      description: "What started as a project to make a simple & re-usable template for React projects turned into a research tool for digital nomads and expatriates to understand where in the world they could settle down in. Inspired by my mother expressing an interest in retiring abroad, a UX excercise in building software that is data-dense and intutive, it came to encompass every sanction-free destination in the world, with over a thousand cities available on our interactive map.",
+      description: "What started as a project to make a simple & re-usable template for React projects turned into a paid research tool for digital nomads and expatriates to understand where in the world they could settle down in. Inspired by my mother expressing an interest in retiring abroad, it came to encompass every sanction-free destination in the world with immigration programs for seventy different countries that offer investment visas or naturalization through entrepreneurship or real-estate investment.",
     },
     {
       company: "Cedar AI",
