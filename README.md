@@ -9,3 +9,4 @@ Use `yarn` to install.
 - Add downloadable resume.
 - Write blog posts about a particular project or professional experience.
 - Fix email link in the dock, make contact information more prominent in general.
+- Add Cedar Project GIFS/visual assets
