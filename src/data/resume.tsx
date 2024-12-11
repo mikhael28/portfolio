@@ -9,7 +9,7 @@ export const DATA = {
   description:
     "Software Engineer, Writer and Maker. I love traveling the world with April & writing software that makes our world just a little bit better.",
   summary:
-    "In January 2024, I left my job at Cedar AI to fulfill my dream of traveling the world and writing my first book, Journey to the East. I graduated from college in three years and after a few years in the workforce, made a strategic decision in 2017 to enter the world of software engineering. It's worked out really well!",
+    "In January 2024, I left my job at Cedar AI to fulfill my dream of traveling the world and writing my first book, Journey to the East. I graduated from college in three years and after a few years in the workforce, made a strategic decision in 2017 to enter the world of software engineering. It's worked out really well! Random piece of housekeeping - while my last name is Litchev, I'm in the process of changing it to Nightingale; my mother's anglicized maiden name.",
   avatarUrl: "/me-singapore.png",
   skills: [
     "React",
