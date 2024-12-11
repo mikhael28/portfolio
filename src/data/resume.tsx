@@ -4,12 +4,26 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Michael Nightingale",
   initials: "MN",
-  url: "https://iamthenightingale.com",
+  url: "https://michaelnightingale.dev",
   location: "Seattle, WA",
-  description: "Software Engineer, Writer and Maker. I love traveling the world with April & writing software that makes our world just a little bit better.",
-  summary: "In January 2024, I left my job at Cedar AI to fulfill my dream of traveling the world and writing my first book, [Journey to the East](https://www.amazon.com/dp/B0CZDF9MNW). [I graduated from college in three years](/#education) and after a few years in the workforce, made a strategic decision in 2017 to enter the world of software engineering. It's worked out really well!",
+  description:
+    "Software Engineer, Writer and Maker. I love traveling the world with April & writing software that makes our world just a little bit better.",
+  summary:
+    "In January 2024, I left my job at Cedar AI to fulfill my dream of traveling the world and writing my first book, Journey to the East. I graduated from college in three years and after a few years in the workforce, made a strategic decision in 2017 to enter the world of software engineering. It's worked out really well!",
   avatarUrl: "/me-singapore.png",
-  skills: ["React", "Flutter", "Typescript", "Node.js", "Python", "Next.js", "Postgres", "MongoDB", "Serverless", "UX", "CI/CD"],
+  skills: [
+    "React",
+    "Flutter",
+    "Typescript",
+    "Node.js",
+    "Python",
+    "Next.js",
+    "Postgres",
+    "MongoDB",
+    "Serverless",
+    "UX",
+    "CI/CD",
+  ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
@@ -33,16 +47,10 @@ export const DATA = {
       },
       Youtube: {
         name: "Youtube",
-        url: "https://www.youtube.com/@paretoeducation245",
+        url: "https://www.youtube.com/@expatria-online",
         icon: Icons.youtube,
         navbar: true,
       },
-      // Email: {
-      //   name: "Send Email",
-      //   url: "mikhael@hey.com",
-      //   icon: Icons.email,
-      //   navbar: true,
-      // },
     },
   },
 
@@ -52,11 +60,12 @@ export const DATA = {
       href: "https://expatriaonline.com",
       badges: [],
       location: "Remote Sabbatical",
-      title: "Software Engineer, Founder",
+      title: "Founder, CEO + CTO",
       logoUrl: "/exp-logo.webp",
       start: "May 2024",
       end: "Oct 2024",
-      description: "What started as a project to make a simple & re-usable template for React projects turned into a paid research tool for digital nomads and expatriates to understand where in the world they could settle down in. Inspired by my mother expressing an interest in retiring abroad, it came to encompass every sanction-free destination in the world with immigration programs for seventy different countries that offer investment visas or naturalization through entrepreneurship or real-estate investment.",
+      description:
+        "What started as a project to make a simple & re-usable template for React projects turned into a paid research tool for digital nomads and expatriates to understand where in the world they could settle down in. Inspired by my mother expressing an interest in retiring abroad, it came to encompass every sanction-free destination in the world with immigration programs for seventy different countries that offer investment visas or naturalization through entrepreneurship or real-estate investment.",
     },
     {
       company: "Cedar AI",
@@ -67,7 +76,8 @@ export const DATA = {
       logoUrl: "/cedarai-logo.jpeg",
       start: "Sep 2021",
       end: "Jan 2024",
-      description: "Armed with the unnoficial title of 'Mobile App Emperor', I built, launched and maintained the Flutter mobile application on iOS, Android and web. Our users were industrial, blue-collar railroad workers working in rough conditions. I traveled onsite to railroads in four different states to build custom functionality, responded directly to customer feedback, participated in sales calls as a technical advisor & served on-call more or less continuously. Also did work on React front-end & Python REST API endpoint logic when needed.",
+      description:
+        "Armed with the unnoficial title of 'Mobile App Emperor', I built, launched and maintained the Flutter mobile application on iOS, Android and web. Our users were industrial, blue-collar railroad workers working in rough conditions. I traveled onsite to railroads in four different states to build custom functionality, responded directly to customer feedback, participated in sales calls as a technical advisor & served on-call more or less continuously. Also did work on React front-end codebases & Python REST APIs when needed.",
     },
     {
       company: "Pandemic Career Break + Open Source Work",
@@ -78,7 +88,8 @@ export const DATA = {
       logoUrl: "/pareto-logo.png",
       start: "January 2020",
       end: "April 2020",
-      description: "The pandemic was, after the dust settled on the initial lockdowns, the best time to travel. You could stay at a Hamptons Suites for $30 a night, it was absurd. At the same time, I was leading development of Paret0, an open-source project that of 30 contributors that was designing an socially competitive multiplayer habit tracker and software developer learning resource.",
+      description:
+        "The pandemic was, after the dust settled on the initial lockdowns, the best time to travel. You could stay at a Hamptons Suites for $30 a night, it was absurd. At the same time, I was leading development of Paret0, an open-source project that of 30 contributors that was designing an socially competitive multiplayer habit tracker and software developer learning resource.",
     },
     {
       company: "Unloop",
@@ -89,33 +100,36 @@ export const DATA = {
       logoUrl: "/unloop-logo.png",
       start: "October 2019",
       end: "July 2020",
-      description: "Unloop was (is?) a non-profit coding bootcamp for people who are incarcerated, or formerly incarcerated, and I was hired as the Lead Instructor for their in-person cohort at their Seattle headquarters. At the time, I was running a business selling some innovative (in my opinion) learning materials for learning programming, and the executive director recruited me to work there full-time & licensed my IP to white-label it for the students. Working with that population, while also contributing code to dev projects that the non-profit secured as part of its funding source, was a classic example of taking on more than I could chew. The pandemic blowing up in everyones faces, forcing us to adapt to a digital-only reality, was difficult to say the least, especially working with people who were incarcerated, in work-release, attending rehab or otherwise not the standard California techie. It was a very valuable experience.",
+      description:
+        "Unloop was (is?) a non-profit coding bootcamp for people who are incarcerated, or formerly incarcerated, and I was hired as the Lead Instructor for their in-person cohort at their Seattle headquarters. At the time, I was running a business selling some innovative (in my opinion) learning materials for learning programming, and the executive director recruited me to work there full-time & licensed my IP to white-label it for the students. Working with that population, while also contributing code to dev projects that the non-profit secured as part of its funding source, was a classic example of taking on more than I could chew. The pandemic blowing up in everyones faces, forcing us to adapt to a digital-only reality, was difficult to say the least, especially working with people who were incarcerated, in work-release, attending rehab or otherwise not the standard California techie. It was a very valuable experience.",
     },
     {
       company: "Revercare (YC 17)",
-      href: "https://revercare/",
+      href: "https://revercare.com",
       badges: [],
       location: "Palo Alto, CA",
       title: "Software Engineer, Loudest Person in the Hacker House",
       logoUrl: "/revercare-logo.png",
       start: "May 2019",
       end: "August 2019",
-      description: "I was hired for a three month consulting gig to build a full-stack MVP for a new YC startup called Revercare, focusing on connecting the caregivers of the elderly to trusted service providers. I love my grandma, so I really enjoyed building this out with React & Node microservices hosted on Lambda - I even moved down to Palo Alto for two of the three months, to get the experience of working in a hacker house, shared with two other startups in the same cohort. Needless to say, I enjoyed my time greatly, but was relieved to move back to Seattle for an office with stable air conditioning after the MVP launched.",
+      description:
+        "I was hired for a three month consulting gig to build a full-stack MVP for a new YC startup called Revercare, focusing on connecting the caregivers of the elderly to trusted service providers. I love my grandma, so I really enjoyed building this out with React & Node microservices hosted on Lambda - I even moved down to Palo Alto for two of the three months, to get the experience of working in a hacker house, shared with two other startups in the same cohort. Needless to say, I enjoyed my time greatly, but was relieved to move back to Seattle for an office with stable air conditioning after the MVP launched.",
     },
     {
       company: "Digital Nomading + Career Transition",
-      href: "https://mitremedia.com/",
+      href: "https://en.wikipedia.org/wiki/Digital_nomad",
       badges: [],
       location: "The Seven Seas, Mr. Worldwide",
       title: "Software Engineer In-Training",
       logoUrl: "/me.png",
       start: "January 2017",
       end: "May 2019",
-      description: "Make no mistake about it, I was a digital nomad before it was cool. Yeah, sure, the pandemic took it mainstream, but the real sickos were attending Go(pher) Meetups in Sofia, Bulgaria in September of 2017. Like most self-taught software engineers, I started with the small stuff. I made a website for my mom, consulted for a friend's Amazon FBA business, and worked my way up to more interesting and technically demanding projects. I built a prototype of a freelancer marketplace in Uganda for a client on Upwork, worked on Know-Your-Customer (KYC) software for a startup in Trinidad & Tobago, and a few other things besides that put some money in my pocket.",
+      description:
+        "I like to think that I was a digital nomad before it was cool. Yeah, sure, the pandemic took it mainstream, but the real sickos were attending Eastern-European Go(pher) Meetups in September of 2017. Like most self-taught software engineers, I started with the small stuff. I made a website for my mom, consulted for a friend's Amazon FBA business, and worked my way up to more interesting and technically demanding projects. I built a prototype of a freelancer marketplace in Uganda for a client on Upwork, worked on Know-Your-Customer (KYC) software for a startup in Trinidad & Tobago, and a few other things besides that put some money in my pocket.",
     },
     {
       company: "Onvia",
-      href: "https://mitremedia.com/",
+      href: "https://info.deltek.com/GovWin-Onvia-Demo",
       badges: [],
       location: "Seattle, WA",
       title: "eCommerce Marketing Specialist",
@@ -127,7 +141,7 @@ export const DATA = {
     },
     {
       company: "US House of Representative, CA District 17",
-      href: "https://mitremedia.com/",
+      href: "https://en.wikipedia.org/wiki/California%27s_17th_congressional_district",
       badges: [],
       location: "Fremont, CA",
       title: "Intern",
@@ -160,10 +174,19 @@ export const DATA = {
     {
       title: "Expatria",
       href: "https://expatria.com",
-      dates: "May 2024 - Oct 2024",
+      dates: "December 2024 - Present",
       active: true,
-      description: "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
-      technologies: ["Next.js", "Typescript", "PostgreSQL", "TailwindCSS", "Stripe", "Vercel", "Supabase"],
+      description:
+        "A SaaS platform to help people from around the world retire earlier by retiring abroad. Includes immigration programs, real-estate investment research, taxation information and more.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "PostgreSQL",
+        "TailwindCSS",
+        "Stripe",
+        "Vercel",
+        "Supabase",
+      ],
       links: [
         {
           type: "Website",
@@ -175,12 +198,39 @@ export const DATA = {
       video: "./exp-super-compressed.mov",
     },
     {
+      title: "Journey to the East; Post-COVID China",
+      href: "https://www.amazon.com/dp/B0CZDF9MNW",
+      dates: "July 2023 - May 2024",
+      active: true,
+      description:
+        "My travelogue over 60 days in China, with an overview on modern culture, technology & a complete introduction to Imperial History from the Zhou to the Qing Dynasties.",
+      technologies: ["Pen", "Paper", "Keyboard", "Scrivener", "Apple Pages"],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.amazon.com/dp/B0CZDF9MNW",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "./journey.mp4",
+    },
+    {
       title: "Paret0",
       href: "https://paret0.com",
       dates: "July 2020 - October 2021",
       active: true,
-      description: "An open-source, collaborative platform for technical education. Originally a solo passion project, it became an open-source repository with 30 different contributors.",
-      technologies: ["React.js", "Typescript", "MongoDB", "MaterialUI", "Stripe", "Amazon Web Services", "Lambda"],
+      description:
+        "An open-source, collaborative platform for technical education. Originally a solo passion project, it became an open-source repository with 30 different contributors.",
+      technologies: [
+        "React.js",
+        "Typescript",
+        "MongoDB",
+        "MaterialUI",
+        "Stripe",
+        "Amazon Web Services",
+        "Lambda",
+      ],
       links: [
         {
           type: "Website",
@@ -199,9 +249,33 @@ export const DATA = {
     {
       title: "Full-Stack Starter Pack",
       href: "https://oracleofchanges.com",
-      dates: "May 2024 - July 2024",
+      dates: "Unreleased Thus Far",
       active: true,
-      description: "An interactive workbook that has over 20 interactive excercises to teach aspiring software engineers the fundamentals of system design, scrum-based sprint methodology, ux design & product management. It includes cheat sheets for JavaScript Array methods, TypeScript and more.",
+      description:
+        "An interactive workbook that has over 20 interactive excercises to teach aspiring software engineers the fundamentals of system design, scrum-based sprint methodology, ux design & product management. It includes cheat sheets for JavaScript Array methods, TypeScript and more.",
+      technologies: ["Pen", "Paper", "Keyboard", "Scrivener", "Apple Pages"],
+      links: [
+        // {
+        //   type: "Website",
+        //   href: "https://oracleofchanges.com",
+        //   icon: <Icons.globe className="size-3" />,
+        // },
+        // {
+        //   type: "Source",
+        //   href: "https://github.com/mikhael28/i-ching",
+        //   icon: <Icons.github className="size-3" />,
+        // },
+      ],
+      image: "",
+      video: "./starter-pack.mov",
+    },
+    {
+      title: "Oracle of Changes",
+      href: "https://oracleofchanges.com",
+      dates: "April 2021 - April 2021",
+      active: true,
+      description:
+        "Built in a week, this is a representation of the Yi Jing, the Book of Changes, an oracular predictive system for reality which originated in China 3000 years ago. It uses the Yarrow Stick algorithm, one of the oldest if not the oldest algorithms in the world, and returns one of 64 hexagrams based on your question.",
       technologies: ["React.js", "Typescript"],
       links: [
         {
@@ -216,46 +290,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "./starter-pack.mov",
-    },
-    // {
-    //   title: "Oracle of Changes",
-    //   href: "https://oracleofchanges.com",
-    //   dates: "April 2021 - April 2021",
-    //   active: true,
-    //   description: "Built in a week, this is a representation of the Yi Jing, the Book of Changes, an oracular predictive system for reality which originated in China 3000 years ago. It uses the Yarrow Stick algorithm, one of the oldest if not the oldest algorithms in the world, and returns one of 64 hexagrams based on your question.",
-    //   technologies: ["React.js", "Typescript"],
-    //   links: [
-    //     {
-    //       type: "Website",
-    //       href: "https://oracleofchanges.com",
-    //       icon: <Icons.globe className="size-3" />,
-    //     },
-    //     {
-    //       type: "Source",
-    //       href: "https://github.com/mikhael28/i-ching",
-    //       icon: <Icons.github className="size-3" />,
-    //     },
-    //   ],
-    //   image: "",
-    //   video: "./starter-pack.mov",
-    // },
-    {
-      title: "Journey to the East; Post-COVID China",
-      href: "https://www.amazon.com/dp/B0CZDF9MNW",
-      dates: "July 2023 - May 2024",
-      active: true,
-      description: "My travelogue over 60 days in China, with an overview on modern culture, technology & a complete introduction to Imperial History from the Zhou to the Qing Dynasties.",
-      technologies: ["Pen", "Paper", "Keyboard", "Scrivener", "Apple Pages"],
-      links: [
-        {
-          type: "Website",
-          href: "https://www.amazon.com/dp/B0CZDF9MNW",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "./journey.mp4",
+      video: "./oracle-logo.png",
     },
   ],
   leadership: [
@@ -263,7 +298,8 @@ export const DATA = {
       title: "Broadview Coffee",
       dates: "Maybe this Sunday",
       location: "Broadview Seattle, WA",
-      description: "April & I love our neighborhood, and we organize get togethers on our front-lawn to bring our neighbors together for a communal cup of coffee. Community is key to a balanced life, thriving community or successful workplace.",
+      description:
+        "April & I love our neighborhood, and we organize get togethers on our front-lawn to bring our neighbors together for a communal cup of coffee. Community is key to a balanced life, thriving community or successful workplace.",
       image: "./coffeeshop.png",
       links: [],
     },
@@ -271,7 +307,8 @@ export const DATA = {
       title: "Meetup Organizer (Full-Stack Apprenticeship)",
       dates: "July 2018 - July 2019",
       location: "Seattle, Washington",
-      description: "Organized monthly, six-hour long Meetups on Saturdays and Sundays for JavaScript engineers & apprentices to learn from each other & collaborate on projects. Our community built a web and mobile app (React Native) to organize our work.",
+      description:
+        "Organized monthly, six-hour long Meetups on Saturdays and Sundays for JavaScript engineers & apprentices to learn from each other & collaborate on projects. Our community built a web and mobile app (React Native) to organize our work.",
       image: "./meetup-logo.png",
       links: [
         // {
@@ -300,7 +337,8 @@ export const DATA = {
       title: "Executive Vice-President, Alpha Kappa Psi (Omega Beta Chapter)",
       dates: "March 2013 - March, 2014",
       location: "Bellingham, Washington",
-      description: "In my junior year, I served as the Vice-President of Administration at Western Washington Universities Alpha Kappa Psi Chapter, which is a co-ed professional business fraternity. My duties included the management of the Committee Chairs, organizing a weekly meeting for the seven different committies to chart strategy and provide structure and accountability.",
+      description:
+        "In my junior year, I served as the Vice-President of Administration at Western Washington Universities Alpha Kappa Psi Chapter, which is a co-ed professional business fraternity. My duties included the management of the Committee Chairs, organizing a weekly meeting for the seven different committies to chart strategy and provide structure and accountability.",
       image: "./akpsi-logo.png",
       links: [
         // {
@@ -314,7 +352,8 @@ export const DATA = {
       title: "Organizer, Northwest Model United Nations (NWMUN)",
       dates: "2014-2017",
       location: "Seattle, WA",
-      description: "While I'm not going to pretend I was the driving force behind the organization, I served in progressively higher responsibility positions in the conference to help provide a forum for college students in the Northwest to gain diplomatic and public speaking experience.",
+      description:
+        "While I'm not going to pretend I was anything close to the driving force behind the organization, I served in progressively higher responsibility positions in the conference to help provide a forum for college students in the Northwest to gain diplomatic and public speaking experience.",
       image: "./un-logo.png",
       links: [],
     },
