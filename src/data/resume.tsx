@@ -62,8 +62,8 @@ export const DATA = {
       location: "Remote Sabbatical",
       title: "Founder, CEO + CTO",
       logoUrl: "/exp-logo.webp",
-      start: "May 2024",
-      end: "Oct 2024",
+      start: "December 2024",
+      end: "Current",
       description:
         "What started as a project to make a simple & re-usable template for React projects turned into a paid research tool for digital nomads and expatriates to understand where in the world they could settle down in. Inspired by my mother expressing an interest in retiring abroad, it came to encompass every sanction-free destination in the world with immigration programs for seventy different countries that offer investment visas or naturalization through entrepreneurship or real-estate investment.",
     },
