@@ -1,6 +1,6 @@
 # Michael's Portfolio Website
 
-Nothing extreme, not built from scratch, but more of a way to help you understand my taste in basic front-end design.
+Nothing extreme, not built from scratch, but more of a way to help you understand my taste in basic front-end design. Test.
 
 Use `yarn` to install.
 
