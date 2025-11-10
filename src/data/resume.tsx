@@ -173,7 +173,7 @@ export const DATA = {
   projects: [
     {
       title: "Expatria",
-      href: "https://expatria.com",
+      href: "https://expatriaonline.com",
       dates: "December 2024 - Present",
       active: true,
       description:
@@ -190,7 +190,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://expatria.com",
+          href: "https://expatriaonline.com",
           icon: <Icons.globe className="size-3" />,
         },
       ],
