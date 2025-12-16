@@ -2,14 +2,14 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Michael Nightingale",
-  initials: "MN",
+  name: "Michael Litchev",
+  initials: "ML",
   url: "https://michaelnightingale.dev",
   location: "Seattle, WA",
   description:
-    "Software Engineer, Writer and Maker. I love traveling the world with April & writing software that makes our world just a little bit better.",
+    "I am many things; professionally a software engineer, writer & maker. I love playing sports, keeping up with the latest in technology & reading history. I speak 4 languages (2.75, if I'm being specific) and love together with my partner April in the Broadview neighborhood of Seattle.",
   summary:
-    "In January 2024, I left my job at Cedar AI to fulfill my dream of traveling the world and writing my first book, Journey to the East. I graduated from college in three years and after a few years in the workforce, made a strategic decision in 2017 to enter the world of software engineering. It's worked out really well! Random piece of housekeeping - while my last name is Litchev, I'm in the process of changing it to Nightingale; my mother's anglicized maiden name.",
+    "I am many things; professionally a software engineer, writer & maker. I love playing sports, keeping up with the latest in technology & reading history. I speak 4 languages (2.75, if I'm being specific) and love together with my partner April in the Broadview neighborhood of Seattle. My pen name is Michael Nightingale.",
   avatarUrl: "/me-singapore.png",
   skills: [
     "React",
@@ -17,11 +17,12 @@ export const DATA = {
     "Typescript",
     "Node.js",
     "Python",
+    "OpenAI",
     "Next.js",
     "Postgres",
-    "MongoDB",
+    "Amazon Web Services",
     "Serverless",
-    "UX",
+    "UX Research",
     "CI/CD",
   ],
   navbar: [
@@ -40,7 +41,7 @@ export const DATA = {
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://linkedin.com/in/michael-litchev",
+        url: "https://linkedin.com/in/michaellitchev",
         icon: Icons.linkedin,
 
         navbar: true,
@@ -125,7 +126,7 @@ export const DATA = {
       start: "January 2017",
       end: "May 2019",
       description:
-        "I like to think that I was a digital nomad before it was cool. Yeah, sure, the pandemic took it mainstream, but the real sickos were attending Eastern-European Go(pher) Meetups in September of 2017. Like most self-taught software engineers, I started with the small stuff. I made a website for my mom, consulted for a friend's Amazon FBA business, and worked my way up to more interesting and technically demanding projects. I built a prototype of a freelancer marketplace in Uganda for a client on Upwork, worked on Know-Your-Customer (KYC) software for a startup in Trinidad & Tobago, and a few other things besides that put some money in my pocket.",
+        "I like to think that I was a digital nomad before it was cool. Yeah, sure, the pandemic took it mainstream, but the real sickos were attending Bulgarian Go(pher) Meetups in September of 2017. Like most self-taught software engineers, I started with the small stuff. I made a website for my mom, consulted for a friend's Amazon FBA business, and worked my way up to more interesting and technically demanding projects. I built a prototype of a freelancer marketplace in Uganda for a client on Upwork, worked on Know-Your-Customer (KYC) software for a startup in Trinidad & Tobago, and a few other things besides that put some money in my pocket.",
     },
     {
       company: "Onvia",
