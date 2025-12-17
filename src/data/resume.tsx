@@ -7,15 +7,16 @@ export const DATA = {
   url: "https://michaelnightingale.dev",
   location: "Seattle, WA",
   description:
-    "I am many things; professionally a software engineer, writer & maker. I love playing sports, keeping up with the latest in technology & reading history. I speak 4 languages (2.75, if I'm being specific) and love together with my partner April in the Broadview neighborhood of Seattle.",
+    "I'm a software engineer, writer & maker living in the Broadview neighborhood of Seattle.",
   summary:
-    "I am many things; professionally a software engineer, writer & maker. I love playing sports, keeping up with the latest in technology & reading history. I speak 4 languages (2.75, if I'm being specific) and love together with my partner April in the Broadview neighborhood of Seattle. My pen name is Michael Nightingale.",
+    "This website is a digital resume, portfolio of projects & open-source contributions, as well as a showcase for my non-technical side & blog. I have included links to my open-source projects on GitHub below, and invite you to review the source code and contribute to the projects. Some of my hobbies include playing sports like basketball, reading history, playing videogames like Fallout New Vegas & practicing my foreign languages.",
   avatarUrl: "/me-singapore.png",
   skills: [
     "React",
     "Flutter",
     "Typescript",
     "Node.js",
+    "React Native",
     "Python",
     "OpenAI",
     "Next.js",
@@ -153,6 +154,82 @@ export const DATA = {
         "Ah, the humble intern. I was a fresh graduate, armed with the highly profitable and respected BA in Political Science, and thought it made some sense to get a job in my chosen field. I walked into California's 17th district, then run by Mike Honda, what was a complete tirefire that was mercifully put out the following election cycle by Ro Khanna. In the 6 short months that I was there, the honorable Congressman fell asleep in front of a CSPAN camera during a hearing on the war in Afghanistan & was formally brought under investigation by the House Ethics Committee for his District Office staff breaking rules regarding acceptable political activity involving his campaign. All the while, constituents called into the office to complain about the VA losing their files, USCIS statuses remaining unchanged over the years, or simply calling to talk to someone because they were just lonely. I saw a vision of what the future could be, and decided to move in another direction. I was time to get a real job.",
     },
   ],
+  npm: [
+    {
+      title: "National Metadata",
+      dates: "2025",
+      href: "https://www.npmjs.com/package/national-metadata",
+      active: true,
+      description:
+        "The internet's most comprehensive of metadata about the nation-states of Planet Earth.",
+      technologies: ["Typescript", "JSON"],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/mikhael28/national-metadata",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "./gifs/national-metadata.gif",
+    },
+    {
+      title: "Seattle Open JSON",
+      dates: "2025 - Present",
+      href: "https://www.npmjs.com/package/seattle-open-json",
+      active: true,
+      description:
+        "An npm package & MCP server that provides a standardized JSON format for data from the City of Seattle's Open Data Portal.",
+      technologies: ["Typescript", "JSON", "MCP"],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.npmjs.com/package/seattle-open-json",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/mikhael28/seattle-open-json",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Deployment",
+          href: "https://seattle.expatriaonline.com/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "./gifs/seattle-open-json.gif",
+    },
+    {
+      title: "Yi Jing Oracle",
+      dates: "2025",
+      href: "https://www.npmjs.com/package/yi-jing-oracle",
+      active: true,
+      description:
+        "NPM package providing an algorithmic implementation of the Yi Jing, and other visual assets related to Taoist philosophy & divination.",
+      technologies: ["Typescript", "JSON"],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.npmjs.com/package/yi-jing-oracle",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/mikhael28/yi-jing",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "Classic Deployment",
+          href: "https://oracleofchanges.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "./gifs/oracle-npm.gif",
+    },
+  ],
   education: [
     {
       school: "Western Washington University",
@@ -197,6 +274,37 @@ export const DATA = {
       ],
       image: "",
       video: "./exp-super-compressed.mov",
+    },
+    {
+      title: "Tech Touchdown",
+      href: "https://sports.expatriaonline.com",
+      dates: "September 2025",
+      active: true,
+      description:
+        "A pilot episode & web experience for a podcast that combines the latest news in technology and AI with sports.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "PostgreSQL",
+        "TailwindCSS",
+        "Stripe",
+        "Vercel",
+        "Supabase",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://sports.expatriaonline.com",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/mikhael28/tech-touchdown",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "./gifs/tech-touchdown.gif",
     },
     {
       title: "Journey to the East; Post-COVID China",
@@ -249,26 +357,15 @@ export const DATA = {
     },
     {
       title: "Full-Stack Starter Pack",
-      href: "https://oracleofchanges.com",
+      href: "https://expatriaonline.com",
       dates: "Unreleased Thus Far",
       active: true,
       description:
         "An interactive workbook that has over 20 interactive excercises to teach aspiring software engineers the fundamentals of system design, scrum-based sprint methodology, ux design & product management. It includes cheat sheets for JavaScript Array methods, TypeScript and more.",
       technologies: ["Pen", "Paper", "Keyboard", "Scrivener", "Apple Pages"],
-      links: [
-        // {
-        //   type: "Website",
-        //   href: "https://oracleofchanges.com",
-        //   icon: <Icons.globe className="size-3" />,
-        // },
-        // {
-        //   type: "Source",
-        //   href: "https://github.com/mikhael28/i-ching",
-        //   icon: <Icons.github className="size-3" />,
-        // },
-      ],
+      links: [],
       image: "",
-      video: "./starter-pack.mov",
+      video: "./starter-pack.MOV",
     },
     {
       title: "Oracle of Changes",
@@ -291,7 +388,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "./oracle-logo.png",
+      video: "./gifs/oracle-react-native.gif",
     },
   ],
   leadership: [
@@ -311,28 +408,7 @@ export const DATA = {
       description:
         "Organized monthly, six-hour long Meetups on Saturdays and Sundays for JavaScript engineers & apprentices to learn from each other & collaborate on projects. Our community built a web and mobile app (React Native) to organize our work.",
       image: "./meetup-logo.png",
-      links: [
-        // {
-        //   title: "Devpost",
-        //   icon: <Icons.globe className="h-4 w-4" />,
-        //   href: "https://devpost.com/software/my6footprint",
-        // },
-        // {
-        //   title: "ML",
-        //   icon: <Icons.github className="h-4 w-4" />,
-        //   href: "https://github.com/Wallet6/my6footprint-machine-learning",
-        // },
-        // {
-        //   title: "iOS",
-        //   icon: <Icons.github className="h-4 w-4" />,
-        //   href: "https://github.com/Wallet6/CarbonWallet",
-        // },
-        // {
-        //   title: "Server",
-        //   icon: <Icons.github className="h-4 w-4" />,
-        //   href: "https://github.com/Wallet6/wallet6-server",
-        // },
-      ],
+      links: [],
     },
     {
       title: "Executive Vice-President, Alpha Kappa Psi (Omega Beta Chapter)",
@@ -341,13 +417,7 @@ export const DATA = {
       description:
         "In my junior year, I served as the Vice-President of Administration at Western Washington Universities Alpha Kappa Psi Chapter, which is a co-ed professional business fraternity. My duties included the management of the Committee Chairs, organizing a weekly meeting for the seven different committies to chart strategy and provide structure and accountability.",
       image: "./akpsi-logo.png",
-      links: [
-        // {
-        //   title: "Organization",
-        //   icon: <Icons.github className="h-4 w-4" />,
-        //   href: "https://github.com/ethdocnet",
-        // },
-      ],
+      links: [],
     },
     {
       title: "Organizer, Northwest Model United Nations (NWMUN)",
