@@ -4,8 +4,9 @@ Nothing extreme, more of a way to help you understand my taste in basic front-en
 
 Use `npm` to install.
 
-## Some TODOs for myself
+## Website Bugs / Features
+- Fix email link in the dock, make contact information more prominent.
 
-- Write blog posts about a particular project or professional experience, and be able to link a particular project or professional experience to that post..
-- Fix email link in the dock, make contact information more prominent in general.
-- Add Cedar Project GIFS/visual assets
+## Blog Posts to Write
+- Flutter ecosystem overview, through Cedar mobile application.
+- Chromebook 2026 Vibe Coding
