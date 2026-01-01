@@ -1,10 +1,28 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
+import { DATA } from "@/data/resume";
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Blog",
-  description: "Musings and amusements",
+  description: "Musings and amusements from Michael Litchev - thoughts on software engineering, technology, and life.",
+  openGraph: {
+    title: "Blog | Michael Litchev",
+    description: "Musings and amusements from Michael Litchev - thoughts on software engineering, technology, and life.",
+    url: `${DATA.url}/blog`,
+    siteName: DATA.name,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: "Blog | Michael Litchev",
+    description: "Musings and amusements from Michael Litchev - thoughts on software engineering, technology, and life.",
+  },
+  alternates: {
+    canonical: `${DATA.url}/blog`,
+  },
 };
 
 const BLUR_FADE_DELAY = 0.04;

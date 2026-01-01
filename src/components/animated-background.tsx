@@ -83,7 +83,7 @@ export default function AnimatedBackground() {
       {stars.map((star) => (
         <motion.div
           key={`star-${star.id}`}
-          className="absolute rounded-full bg-slate-400 dark:bg-slate-300"
+          className="absolute rounded-full bg-slate-300/60 dark:bg-slate-400/40"
           style={{
             left: star.x,
             top: star.y,
@@ -119,7 +119,7 @@ export default function AnimatedBackground() {
                 y2={targetNode.y}
                 stroke="currentColor"
                 strokeWidth="0.5"
-                className="text-slate-300/20 dark:text-slate-600/30"
+                className="text-slate-200/15 dark:text-slate-700/20"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ 
                   pathLength: [0, 1, 0],
@@ -141,7 +141,7 @@ export default function AnimatedBackground() {
       {networkNodes.map((node) => (
         <motion.div
           key={`node-${node.id}`}
-          className="absolute w-1 h-1 rounded-full bg-slate-400/40 dark:bg-slate-500/50"
+          className="absolute w-1 h-1 rounded-full bg-slate-300/30 dark:bg-slate-600/30"
           style={{
             left: node.x - 2,
             top: node.y - 2,
@@ -160,7 +160,7 @@ export default function AnimatedBackground() {
       ))}
 
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-slate-50/5 dark:to-slate-900/10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/30" />
     </div>
   );
 }

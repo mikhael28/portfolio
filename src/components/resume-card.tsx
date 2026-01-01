@@ -31,7 +31,7 @@ export const ResumeCard = ({ logoUrl, altText, title, subtitle, href, badges, pe
 
   return (
     <Link href={href || "#"} className="block cursor-pointer" onClick={handleClick}>
-      <Card className="flex">
+      <Card className="flex p-3 hover:shadow-[var(--shadow-md)] hover:-translate-y-px">
         <div className="flex-none">
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
             <AvatarImage src={logoUrl} alt={altText} className="object-contain" />
