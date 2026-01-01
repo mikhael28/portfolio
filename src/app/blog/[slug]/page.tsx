@@ -14,21 +14,36 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   let post = await getPost(params.slug);
 
-  let { title, publishedAt: publishedTime, summary: description, image } = post.metadata;
+  let {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+    tags,
+  } = post.metadata;
   let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
 
   return {
     title,
     description,
+    authors: [{ name: DATA.name, url: DATA.url }],
+    keywords: tags,
     openGraph: {
       title,
       description,
       type: "article",
       publishedTime,
+      modifiedTime: post.metadata.updatedAt || publishedTime,
       url: `${DATA.url}/blog/${post.slug}`,
+      siteName: DATA.name,
+      locale: "en_US",
+      authors: [DATA.name],
       images: [
         {
           url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
         },
       ],
     },
@@ -37,6 +52,10 @@ export async function generateMetadata({
       title,
       description,
       images: [ogImage],
+      creator: "@mikhael28",
+    },
+    alternates: {
+      canonical: `${DATA.url}/blog/${post.slug}`,
     },
   };
 }

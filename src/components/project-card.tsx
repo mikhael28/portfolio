@@ -45,12 +45,12 @@ export function ProjectCard({
   return (
     <Card
       className={
-        "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
+        "group flex flex-col overflow-hidden hover:shadow-[var(--shadow-lg)] hover:border-border hover:-translate-y-0.5 transition-all duration-300 ease-out h-full"
       }
     >
       <Link
         href={href || "#"}
-        className={cn("block cursor-pointer", className)}
+        className={cn("block cursor-pointer relative overflow-hidden", className)}
       >
         {video && isGif && (
           <img
@@ -58,7 +58,7 @@ export function ProjectCard({
             alt={title}
             width={1920}
             height={1080}
-            className="h-40 w-full overflow-hidden object-cover object-top"
+            className="h-40 w-full overflow-hidden object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
           />
         )}
         {video && !isGif && (
@@ -68,16 +68,17 @@ export function ProjectCard({
             loop
             muted
             playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top" // needed because random black line at bottom of video
+            className="pointer-events-none mx-auto h-40 w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
           />
         )}
         {image && (
           <Image
             src={image}
             alt={title}
-            className="h-40 w-full overflow-hidden object-cover object-top"
+            className="h-40 w-full overflow-hidden object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
           />
         )}
+        <div className="absolute inset-0 bg-gradient-to-t from-card/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </Link>
       <CardHeader className="px-2">
         <div className="space-y-1">
