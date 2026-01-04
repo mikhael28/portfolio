@@ -1,6 +1,8 @@
 import { getPost } from "@/data/blog";
 import { DATA } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
+import { addImageCaptions } from "@/lib/blog-utils";
+import { BlogFooter } from "@/components/blog-footer";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -96,12 +98,23 @@ export default async function Blog({
         }}
       />
       <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">{post.metadata.title}</h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+      {post.metadata.subtitle && (
+        <p className="text-lg text-neutral-600 dark:text-neutral-400 mt-2 mb-4 max-w-[650px]">
+          {post.metadata.subtitle}
+        </p>
+      )}
+      <div className="flex justify-between items-center mt-2 mb-4 text-sm max-w-[650px]">
         <Suspense fallback={<p className="h-5" />}>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">{formatDate(post.metadata.publishedAt)}</p>
         </Suspense>
       </div>
-      <article className="prose dark:prose-invert" dangerouslySetInnerHTML={{ __html: post.source }}></article>
+      {post.metadata.summary && (
+        <p className="text-base text-neutral-700 dark:text-neutral-300 mb-8 max-w-[650px] italic">
+          {post.metadata.summary}
+        </p>
+      )}
+      <article className="prose dark:prose-invert" dangerouslySetInnerHTML={{ __html: addImageCaptions(post.source) }}></article>
+      <BlogFooter slug={post.slug} title={post.metadata.title} />
     </section>
   );
 }
