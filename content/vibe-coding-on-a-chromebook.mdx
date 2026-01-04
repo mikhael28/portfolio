@@ -1,0 +1,111 @@
+---
+title: "Can you vibe code locally on a tiny, weak Chromebook?"
+publishedAt: "2026-01-04"
+summary: "Production software, on 4GB of RAM?"
+---
+
+One of the best experiences with a computer I ever had was the 11.6 inch Samsung Chromebook, launched in 2013 back when ChromeOS was basically a Chrome browser. I was wrapping up my undergraduate at Western Washington University & competent access to Google Docs was essentially all I needed to finish the job. After a lifetime of using slow, crash-prone builds of Windows XP & the recent tragedy of Windows 8, Chrome OS was a breath of fresh air. 
+
+![2012 was so fresh and so clean clean](/blog-assets/vibe-coding-on-a-chromebook/samsung-chromebook.webp)
+
+Over the Christmas vacation, I wanted to see how far I could stretch a similarly under-powered computer & see how well it could fit my cracked developer workflow. After a decade of using MacOS almost exclusively, I had recently gotten a 2025 Razer Blade 14 & used Windows as my daily driver for the first time in forever. The NVIDIA 5070 graphics card with 32GB of RAM made it an easy transition, but I wanted to understand; what could I do with less? And how well optimized is Chrome OS, really? 
+
+Enter the Acer Chromebook 311, launched in late 2024 and a cool $150 at Best Buy. Sporting 4GB of LPDDR4X RAM, a dual-core Intel Celeron N4500 processor, it rocked a whopping 64GB flash-storage hard drive (which is big, FYI, for Chromebook standards). It's two and a half pounds, with no fan, and a "HD" quote unquote screen with a 1366x768 resolution. 
+
+![it's nicer in person than in this screenshot](/blog-assets/vibe-coding-on-a-chromebook/acer-screenshot.webp)
+
+Critically, this 11.6' model supports the Linux Development Environment, which most super-small devices don't. Most 11.6 inch devices on Amazon are used/refurbished pieces of junk from 5 years ago, and older models from 2018 or 2020 that might not even receive Chrome OS updates anymore, much less support running a full Linux environment. I'm not going to run models locally against the GPU, but we do need access to a developers standard toolit.
+
+To enable the environment, search Settings in the command bar on the left and scroll down to 'About ChromeOS', then scroll all the way down to 'Linux Developer Environment' and click enable. It will partition 10GB of data initially, which is enough to get started (and can be expanded later easily). 
+
+We are running Debian here, which is the second-oldest Linux distribution in active development today, started all the way back in 1993. If that doesn't scream stability, I don't know what does. Git is installed already, so the first thing for us to do is to update our package manager  `apt` to have updated links to the relevant dependencies. Once the Linux Development environment is set-up, you can access it through the `Terminal` app found in the Control Center. 
+
+To paste commands into the terminal effectively, you will use `Ctrl` `Shift` `v` as an FYI.
+
+`sudo apt update`
+`sudo apt upgrade -y`
+`sudo apt install nodejs npm`
+
+First thing we need to do, as self-respecting developers, is to install an IDE. Proceed to Cursor's website, download their Linux executable (.Deb, for Debian), and select whether your Chromebook is running on ARM or x64 (ours). In order to move our files from ChromeOS into the Linux virtual machine, we can simply drag and drop them from the 'Downloads' folder where they currently are, into the 'Linux files' directory (which is, conveniently, the $HOME directory when we open up the Terminal)
+
+`sudo apt install ./file-name.deb` is the recommended way to install .Deb packages; afterwards, the 'Cursor' application should be visible in the Command Bar. BOOM, you are running Cursor. After you clone a repository through the command line, you are in business.
+
+To set-up persistent Git credentials (securely) on the machine, let's set up the GCM (Git Credential Manager)
+
+`sudo apt install git gnupg pass`
+`wget https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.1.2/gcm-linux_amd64.2.1.2.deb`
+`sudo dpkg -i gcm-linux_amd64.2.1.2.deb`
+
+`git config --global credential.helper git-credential-manager`
+`git-credential-manager configure`
+
+Set up your local Git config below, and then next time you try to push or pull from Git that GCM will give you a prompt to enter your username and password (which is your Developer token)
+
+`git config --global user.email "mikhael@hey.com"`
+`git config --global user.name "mikhael28"`
+
+You are now ready to boogie; fire up Cursor and open a repository of code with it. Once you log-in, we can fire off a prompt & see how well the agents perform. Before we start, we can pop open the `Diagnostics` application that is built into ChromeOS so that we can monitor how everything is going. As for right now, we have Google Keep, Diagnostics, Cursor and 2 Chrome Tabs open; our CPU performance hovers between 45 & 60%,  with 0.82GB of RAM left to work with.
+
+Things changed pretty quickly once I tried to run this website/blog's development server. All the dependencies installed, and the local server started working, but it took a minute for the initial bundle to compile. Opening it up in Google Chrome to test was smooth enough, but when trying to run the dev server with Cursor open at the same time, resulted in a massive slowdown of performance. The typing experience frequently dipped below '30fps', probably due to the Markdown language server parsing the content, and partially due to the fact that the dev process was running, along with it's front-end in Chrome, and Cursor on top. Trying to run all three at the same time led to a throttled experience, though running two at a time was tolerable. Essentially, the processing constraints lead you to make careful choices about what processes you have open.
+
+![cursor, running Next & Chrome is a recipe for poor performance](/blog-assets/vibe-coding-on-a-chromebook/portfolio-cursor-performance.png)
+
+Something you notice as you unlease the Agent on the codebase (say, for example, scanning the codebase to create documentation & then make a change or two) is that the insert/query commands it runs tend to slow down dramatically as the context window increases within Cursor. A big part of this, I reckon, is that the overhead of the IDE, along with the overhead of the agentic UI, pushes the processing to the limit, leading to throttling. For best performance, open a new chat tab for each query. Don't push the context window, and things will work just fine for quick changes.
+
+![cursor working on a Chromebook is a minor miracle](/blog-assets/vibe-coding-on-a-chromebook/cursor-chromebook.png)
+
+Let's try using Claude Code instead of Cursor, which as an IDE & agentic interface comes with a much higher performance overhead. Installing Claude Code is quite easy, just run `curl -fsSL https://claude.ai/install.sh | bash` and you should be good to go. Login, and you are ready to go.
+
+![claude code vibes cannot be stopped](/blog-assets/vibe-coding-on-a-chromebook/claude-code-screenshot.png)
+
+To test the ability of the Agent to work on a new, greenfield piece of functionality, we are going to work on implementing a new card game I have developed called 10x; a single & multi-player game for software engineers to practice their data structure & algorithm skills. The game works as so; you have a standard deck of 52 playing cards, though each one of the cards has a JavaScript API method, or control flow statement, or something built into the card that functions as a piece of code. At the beginning of the round, the player is presented a problem one might see in a software engineering interview, such as given an input n, within an array of integers find a pair of values whose sum equals to the input. During each turn, the player draws five cards & can set them face-down as part of their 'solution'. Once they are ready to submit their solution, it will be judged based on the speed of the implementation & it's algorithmic complexity within Big O space-time complexity. I have designed the cards, now it's time to design a virtual playground where I can get some deeper insights into how the gameplay should be tweaked to create a more compelling experience. 
+
+![a preview of 10x, just for you](/blog-assets/vibe-coding-on-a-chromebook/10x-screenshot.png)
+
+In short, Claude Code runs perfectly well on this 4GB Chromebook, without any issues whatsoever. During peak processing, while using the 4.5 Opus Model, the performance did not threaten to throttle the device at all. As it turns out, running `grep` commands & editing/inserting blocks of code isn't performance heavy at all. That's the good news; makes me want to take another look at the 12' MacBook from 2017. And, this was while streaming music from YouTube music, which is admittedly just a Chrome tab, but keeping a minimal application footprint everywhere else. Running the local dev server created almost no overhead at all; a simple Vite React application apparently runs better than the poorly optimized beast that is Next.js. Who would have thought?
+
+![claude code has great performance working on local code](/blog-assets/vibe-coding-on-a-chromebook/claude-code-analytics.png)
+
+While it seems the Chromebook can handle simple, greenfield prototyping with Claude Code, let's see how it works within a complex codebase using Cursor. I am going to work within the codebase of a product I built called Expatria, a platform that helps people retire and move abroad.  We actually need to install NVM, because Expatria uses Next 16 and that requires a higher version of Node than the default installation we have.
+
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash`
+
+We are going to default to the current LTS build, and use `nvm install --lts` and then `nvm use --lts` 
+
+A little bit about the Expatria codebase - it's running bleeding edge Next/React and export to a static bundle, with around 2000 pages generated for each city/country/visa program and more. The build sounds like it will take forever, but it's actually the dev process that I'm worried about. Next compiles each page individually, each time, in dev mode, which means that hot reloading might be out of the picture based on how many modules my Dashboard component is working with. 
+
+![a perfectly adequate landing page](/blog-assets/vibe-coding-on-a-chromebook/expatria-landing.png)
+
+Sure enough, my landing page loaded quickly and efficiently, but the dashboard tried to compile for 4 or 5 minutes before erroring out. I expected this to take some time, as the first time pages build on the dev server they generate artifacts for future cached builds, but it erroring out surprised me. Taking a look at the Diagnostics page, the CPU usage hovered between 95-99%, with half a gig of RAM unused. Rerunning the dev command resulted in the same situation; a long exercise in thinking, before crashing out again. The most disappointing thing is that Cursor isn't even open - this is just trying to run the dev server within the Terminal with Google Keep open (where I'm writing this draft). I'm not even running a local version of my monolith alongside the front-end.
+
+My main Dashboard component, I suppose, is a bit more complex than most. In addition to an Agentic chat interface, the user is able to access some of the most critical modules of the application within a meta-window, using the magic of asynchronous imports to load modules such as the Cost of Living page when it makes sense within the context of the workflow. This results in fast load times in production, by reducing the initial load time of a complicated module, but in development this results in a critical fault where Next's (React's?) hot refresh/reload functionality has to compile the 'asynchronously' imported components synchronously for the purpose of the dev server, and reloads/recompiles them each time.
+
+![what is known as a 'super-dashboard'](/blog-assets/vibe-coding-on-a-chromebook/expatria-dashboard.png)
+
+I recorded a similar issue, a while ago on a more 'prototypical' version of this Dashboard on a different, weaker than average development device - the Asus ROG Ally X. While it has 24GB of RAM and will run pretty much any game you want, the processor would load and compile the entire application in docked mode but would struggle with refreshing/reloading the dashboard while in development. On a much, much weaker processor (the Chromebook's N4500) it appears it simply won't work at all. 
+
+![to call it throttling is an understatement](/blog-assets/vibe-coding-on-a-chromebook/expatria-compilation-performance.png)
+
+In short, while the Chromebook does an admirable job enabling prototyping & running local dev servers for simple projects - it will struggle to run a codebase more advanced a portfolio website with one or two advanced modules per page. As a whole, I am pleasantly surprised with how stable an operating system can run on 4GB of RAM & a severely underpowered processor, at least compared to the firepower I'm used to running. I love devices with small form factors, and I can see myself using something like this to manage some simple administrative work, write blog posts and, yes, even do some simple prototyping with the help of LLMs. After all, I wrote this post & all related work for it on this machine. But as a machine that could handle my daily workflow of working with production software, it couldn't even get past the starting line.
+
+BONUS: Can I game on this Chromebook?
+
+Well, you can download Steam for Linux, and try your luck. 
+
+`sudo dpkg --add-architecture i386`
+`sudo apt-get install \ libgl1-mesa-dri:amd64 \ libgl1-mesa-dri:i386 \ libgl1-mesa-glx:amd64 \ libgl1-mesa-glx:i386 \ steam-launcher`
+
+`sudo apt install libc6:i386 libgl1-mesa-dri:i386 libgl1-mesa-glx:i386 steam-libs-i386 libgbm1:i386 libgl1:i386 libegl1:i386`
+
+I tried running three older, stone-cold classics that I thought might have a chancel; The Elder Scrolls 3 Morrowind, Vampire the Masquerade Bloodlines, and the original Deus Ex. I originally played (for what must have been 300 hours) Morrowind on an 11.6' netbook with an Intel Atom Processor, so I had hope that a more powerful processor & more RAM could overcome the limitation of using Proton to emulate Windows on Linux. 
+
+Here are my results:
+- Morrowind - Unplayable, 5 FPS, only ran with OpenMW.
+- Deus Ex - Unplayable, 10 FPS in the Training mode, awful.
+- Vampire TMB - Literally Unplayable, would not load at all.
+
+Installing Steam, Proton & a game will take up a lot of space - you can use a great utility called `baobab` which will show up as 'Disk Usage Analyzer' to help you understand where your big files are, and help you delete them.
+
+`sudo apt install baobab`
+
+The sad truth is that unless it runs natively within Google Chrome, this device has almost no chance of running anything smoothly under Linux emulation using Proton - even games that require 512MB of RAM & came out 25 years ago.

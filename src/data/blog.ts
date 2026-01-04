@@ -9,6 +9,7 @@ import { unified } from "unified";
 
 type Metadata = {
   title: string;
+  subtitle?: string;
   publishedAt: string;
   summary: string;
   image?: string;
