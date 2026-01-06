@@ -44,7 +44,6 @@ export const DATA = {
         name: "LinkedIn",
         url: "https://linkedin.com/in/michaellitchev",
         icon: Icons.linkedin,
-
         navbar: true,
       },
       Youtube: {
@@ -65,7 +64,7 @@ export const DATA = {
       title: "Founder, CEO + CTO",
       logoUrl: "/exp-logo.webp",
       start: "December 2024",
-      end: "Current",
+      end: "December 2025",
       description:
         "What started as a project to make a simple & re-usable template for React projects turned into a paid research tool for digital nomads and expatriates to understand where in the world they could settle down in. Inspired by my mother expressing an interest in retiring abroad, it came to encompass every sanction-free destination in the world with immigration programs for seventy different countries that offer investment visas or naturalization through entrepreneurship or real-estate investment.",
     },
