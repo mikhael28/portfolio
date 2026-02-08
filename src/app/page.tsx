@@ -5,13 +5,20 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { getBlogPosts } from "@/data/blog";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
 
-export default function Page() {
+export default async function Page() {
+  const posts = await getBlogPosts();
+  const latestPost = posts.sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime()
+  )[0];
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -49,6 +56,21 @@ export default function Page() {
           </Markdown>
         </BlurFade>
       </section>
+      {latestPost && (
+        <section id="latest-post">
+          <BlurFade delay={BLUR_FADE_DELAY * 5}>
+            <Link
+              href={`/blog/${latestPost.slug}`}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Latest Blog Post:{" "}
+              <span className="underline underline-offset-4">
+                {latestPost.metadata.title}
+              </span>
+            </Link>
+          </BlurFade>
+        </section>
+      )}
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
