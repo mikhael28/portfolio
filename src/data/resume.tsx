@@ -57,6 +57,18 @@ export const DATA = {
 
   work: [
     {
+      company: "Mastra AI",
+      href: "https://mastra.ai",
+      badges: [],
+      location: "Remote",
+      title: "Customer Engineer",
+      logoUrl: "/mastra-logo.jpg",
+      start: "March 2026",
+      end: "Present",
+      description:
+        "Building AI agent infrastructure and developer tooling for production-ready AI applications.",
+    },
+    {
       company: "Expatria",
       href: "https://expatriaonline.com",
       badges: [],
@@ -64,7 +76,7 @@ export const DATA = {
       title: "Founder, CEO + CTO",
       logoUrl: "/exp-logo.webp",
       start: "December 2024",
-      end: "December 2025",
+      end: "January 2026",
       description:
         "What started as a project to make a simple & re-usable template for React projects turned into a paid research tool for digital nomads and expatriates to understand where in the world they could settle down in. Inspired by my mother expressing an interest in retiring abroad, it came to encompass every sanction-free destination in the world with immigration programs for seventy different countries that offer investment visas or naturalization through entrepreneurship or real-estate investment.",
     },
