@@ -4,17 +4,20 @@ import { formatDate } from "@/lib/utils";
 import { addImageCaptions } from "@/lib/blog-utils";
 import { BlogFooter } from "@/components/blog-footer";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 import { Suspense } from "react";
 
 export async function generateMetadata({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }): Promise<Metadata | undefined> {
-  let post = await getPost(params.slug);
+  const { slug } = await params;
+  let post = await getPost(slug);
 
   let {
     title,
@@ -65,11 +68,12 @@ export async function generateMetadata({
 export default async function Blog({
   params,
 }: {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }) {
-  let post = await getPost(params.slug);
+  const { slug } = await params;
+  let post = await getPost(slug);
 
   if (!post) {
     notFound();
@@ -97,6 +101,13 @@ export default async function Blog({
           }),
         }}
       />
+      <Link
+        href="/blog"
+        className="inline-flex items-center gap-1 mb-6 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ChevronLeft className="size-4" />
+        All posts
+      </Link>
       <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">{post.metadata.title}</h1>
       {post.metadata.subtitle && (
         <p className="text-lg text-neutral-600 dark:text-neutral-400 mt-2 mb-4 max-w-[650px]">

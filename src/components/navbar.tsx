@@ -17,7 +17,7 @@ export default function Navbar() {
           <DockIcon key={item.href}>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link href={item.href} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12")}>
+                <Link href={item.href} aria-label={item.label} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 text-foreground")}>
                   <item.icon className="size-4" />
                 </Link>
               </TooltipTrigger>
@@ -34,7 +34,7 @@ export default function Navbar() {
             <DockIcon key={name}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link href={social.url} className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12")}>
+                  <Link href={social.url} aria-label={name} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 text-foreground")}>
                     <social.icon className="size-4" />
                   </Link>
                 </TooltipTrigger>
@@ -48,11 +48,12 @@ export default function Navbar() {
         <DockIcon>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Link 
-                href="/documents/Michael-Litchev-Resume-2025.pdf" 
+              <Link
+                href="/documents/Michael-Litchev-Resume-2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12")}
+                aria-label="Download Resume"
+                className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "size-12 text-foreground")}
               >
                 <Icons.download className="size-4" />
               </Link>
