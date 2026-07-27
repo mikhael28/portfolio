@@ -57,7 +57,7 @@ export const DATA = {
 
   work: [
     {
-      company: "Mastra",
+      company: "Mastra AI",
       href: "https://mastra.ai",
       badges: [],
       location: "Remote",
