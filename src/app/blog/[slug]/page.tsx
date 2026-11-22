@@ -1,4 +1,4 @@
-import { getPost } from "@/data/blog";
+import { getPost, isHiddenDraft } from "@/data/blog";
 import { DATA } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
 import { addImageCaptions } from "@/lib/blog-utils";
@@ -18,6 +18,10 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   const { slug } = await params;
   let post = await getPost(slug);
+
+  if (isHiddenDraft(post.metadata)) {
+    notFound();
+  }
 
   let {
     title,
@@ -75,7 +79,7 @@ export default async function Blog({
   const { slug } = await params;
   let post = await getPost(slug);
 
-  if (!post) {
+  if (!post || isHiddenDraft(post.metadata)) {
     notFound();
   }
 

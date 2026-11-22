@@ -15,7 +15,14 @@ type Metadata = {
   image?: string;
   tags?: string[];
   updatedAt?: string;
+  draft?: boolean;
 };
+
+// Posts with `draft: true` in their frontmatter are left out of post listings.
+// Their pages 404 in production but stay viewable by URL in `next dev` for previewing.
+export function isHiddenDraft(metadata: Pick<Metadata, "draft">) {
+  return Boolean(metadata.draft) && process.env.NODE_ENV === "production";
+}
 
 function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
@@ -69,5 +76,6 @@ async function getAllPosts(dir: string) {
 }
 
 export async function getBlogPosts() {
-  return getAllPosts(path.join(process.cwd(), "content"));
+  const posts = await getAllPosts(path.join(process.cwd(), "content"));
+  return posts.filter((post) => !post.metadata.draft);
 }
