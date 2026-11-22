@@ -2,8 +2,8 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Michael Litchev",
-  initials: "ML",
+  name: "Michael Nightingale",
+  initials: "MN",
   url: "https://michaelnightingale.dev",
   location: "Seattle, WA",
   description:

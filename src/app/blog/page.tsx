@@ -6,10 +6,10 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Musings and amusements from Michael Litchev - thoughts on software engineering, technology, and life.",
+  description: "Musings and amusements from Michael Nightingale - thoughts on software engineering, technology, and life.",
   openGraph: {
-    title: "Blog | Michael Litchev",
-    description: "Musings and amusements from Michael Litchev - thoughts on software engineering, technology, and life.",
+    title: "Blog | Michael Nightingale",
+    description: "Musings and amusements from Michael Nightingale - thoughts on software engineering, technology, and life.",
     url: `${DATA.url}/blog`,
     siteName: DATA.name,
     type: "website",
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Blog | Michael Litchev",
-    description: "Musings and amusements from Michael Litchev - thoughts on software engineering, technology, and life.",
+    title: "Blog | Michael Nightingale",
+    description: "Musings and amusements from Michael Nightingale - thoughts on software engineering, technology, and life.",
   },
   alternates: {
     canonical: `${DATA.url}/blog`,

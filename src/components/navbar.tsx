@@ -49,7 +49,7 @@ export default function Navbar() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
-                href="/documents/Michael-Litchev-Resume-2025.pdf"
+                href="/documents/Michael-Nightingale-Resume-2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download Resume"
