@@ -10,72 +10,87 @@ interface Star {
   size: number;
   opacity: number;
   twinkleDelay: number;
+  duration: number;
+}
+
+interface Connection {
+  targetId: number;
+  duration: number;
+  delay: number;
 }
 
 interface NetworkNode {
   id: number;
   x: number;
   y: number;
-  connections: number[];
+  connections: Connection[];
+  duration: number;
+  delay: number;
+}
+
+interface Scene {
+  stars: Star[];
+  networkNodes: NetworkNode[];
+}
+
+// All randomness lives here, so re-renders never reshuffle animation timings.
+function generateScene(width: number, height: number): Scene {
+  // Generate stars for night sky effect
+  const stars: Star[] = Array.from({ length: 50 }, (_, i) => ({
+    id: i,
+    x: Math.random() * width,
+    y: Math.random() * height,
+    size: Math.random() * 2 + 1,
+    opacity: Math.random() * 0.5 + 0.3,
+    twinkleDelay: Math.random() * 3,
+    duration: 2 + Math.random() * 2,
+  }));
+
+  // Generate network nodes for matrix effect
+  const nodeCount = 12;
+  const networkNodes: NetworkNode[] = Array.from({ length: nodeCount }, (_, i) => ({
+    id: i,
+    x: Math.random() * width,
+    y: Math.random() * height,
+    connections: [],
+    duration: 3 + Math.random() * 2,
+    delay: Math.random() * 3,
+  }));
+
+  // Create connections between nearby nodes
+  networkNodes.forEach((node, i) => {
+    networkNodes.forEach((otherNode, j) => {
+      if (i !== j) {
+        const distance = Math.sqrt(
+          Math.pow(node.x - otherNode.x, 2) + Math.pow(node.y - otherNode.y, 2)
+        );
+        if (distance < 200 && node.connections.length < 3) {
+          node.connections.push({
+            targetId: j,
+            duration: 4 + Math.random() * 3,
+            delay: Math.random() * 5,
+          });
+        }
+      }
+    });
+  });
+
+  return { stars, networkNodes };
 }
 
 export default function AnimatedBackground() {
-  const [stars, setStars] = useState<Star[]>([]);
-  const [networkNodes, setNetworkNodes] = useState<NetworkNode[]>([]);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [{ stars, networkNodes }, setScene] = useState<Scene>({ stars: [], networkNodes: [] });
 
   useEffect(() => {
-    const updateDimensions = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
+    // Regenerate the scene to fit the viewport on mount and whenever it resizes.
+    const updateScene = () => {
+      setScene(generateScene(window.innerWidth, window.innerHeight));
     };
 
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
+    updateScene();
+    window.addEventListener("resize", updateScene);
+    return () => window.removeEventListener("resize", updateScene);
   }, []);
-
-  useEffect(() => {
-    if (dimensions.width === 0) return;
-
-    // Generate stars for night sky effect
-    const newStars: Star[] = Array.from({ length: 50 }, (_, i) => ({
-      id: i,
-      x: Math.random() * dimensions.width,
-      y: Math.random() * dimensions.height,
-      size: Math.random() * 2 + 1,
-      opacity: Math.random() * 0.5 + 0.3,
-      twinkleDelay: Math.random() * 3,
-    }));
-
-    // Generate network nodes for matrix effect
-    const nodeCount = 12;
-    const newNodes: NetworkNode[] = Array.from({ length: nodeCount }, (_, i) => ({
-      id: i,
-      x: Math.random() * dimensions.width,
-      y: Math.random() * dimensions.height,
-      connections: [],
-    }));
-
-    // Create connections between nearby nodes
-    newNodes.forEach((node, i) => {
-      newNodes.forEach((otherNode, j) => {
-        if (i !== j) {
-          const distance = Math.sqrt(
-            Math.pow(node.x - otherNode.x, 2) + Math.pow(node.y - otherNode.y, 2)
-          );
-          if (distance < 200 && node.connections.length < 3) {
-            node.connections.push(j);
-          }
-        }
-      });
-    });
-
-    setStars(newStars);
-    setNetworkNodes(newNodes);
-  }, [dimensions]);
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
@@ -95,7 +110,7 @@ export default function AnimatedBackground() {
             scale: [1, 1.2, 1],
           }}
           transition={{
-            duration: 2 + Math.random() * 2,
+            duration: star.duration,
             repeat: Infinity,
             delay: star.twinkleDelay,
             ease: "easeInOut",
@@ -106,13 +121,13 @@ export default function AnimatedBackground() {
       {/* Network connections */}
       <svg className="absolute inset-0 w-full h-full">
         {networkNodes.map((node) =>
-          node.connections.map((connectionId) => {
-            const targetNode = networkNodes[connectionId];
+          node.connections.map((connection) => {
+            const targetNode = networkNodes[connection.targetId];
             if (!targetNode) return null;
             
             return (
               <motion.line
-                key={`connection-${node.id}-${connectionId}`}
+                key={`connection-${node.id}-${connection.targetId}`}
                 x1={node.x}
                 y1={node.y}
                 x2={targetNode.x}
@@ -126,9 +141,9 @@ export default function AnimatedBackground() {
                   opacity: [0, 0.6, 0],
                 }}
                 transition={{
-                  duration: 4 + Math.random() * 3,
+                  duration: connection.duration,
                   repeat: Infinity,
-                  delay: Math.random() * 5,
+                  delay: connection.delay,
                   ease: "easeInOut",
                 }}
               />
@@ -151,9 +166,9 @@ export default function AnimatedBackground() {
             opacity: [0.4, 0.8, 0.4],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: node.duration,
             repeat: Infinity,
-            delay: Math.random() * 3,
+            delay: node.delay,
             ease: "easeInOut",
           }}
         />
