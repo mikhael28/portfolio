@@ -331,28 +331,6 @@ export const DATA = {
       video: "./gifs/tech-touchdown.gif",
     },
     {
-      title: BOOK.title,
-      href: BOOK.href,
-      dates: "July 2023 - May 2024",
-      active: true,
-      description: BOOK.description,
-      technologies: ["Pen", "Paper", "Keyboard", "Scrivener", "Apple Pages"],
-      links: [
-        {
-          type: "Read Online",
-          href: BOOK.href,
-          icon: <Icons.book className="size-3" />,
-        },
-        {
-          type: "Kindle",
-          href: BOOK.kindleUrl,
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "./journey.mp4",
-    },
-    {
       title: "Paret0",
       href: "https://paret0.com",
       dates: "July 2020 - October 2021",
@@ -384,18 +362,6 @@ export const DATA = {
       video: "./pareto.mp4",
     },
     {
-      title: "Full-Stack Starter Pack",
-      href: "https://expatriaonline.com",
-      dates: "Unreleased Thus Far",
-      active: true,
-      description:
-        "An interactive workbook that has over 20 interactive excercises to teach aspiring software engineers the fundamentals of system design, scrum-based sprint methodology, ux design & product management. It includes cheat sheets for JavaScript Array methods, TypeScript and more.",
-      technologies: ["Pen", "Paper", "Keyboard", "Scrivener", "Apple Pages"],
-      links: [],
-      image: "",
-      video: "./starter-pack.MOV",
-    },
-    {
       title: "Oracle of Changes",
       href: "https://oracleofchanges.com",
       dates: "April 2021 - April 2021",
@@ -417,6 +383,42 @@ export const DATA = {
       ],
       image: "",
       video: "./gifs/oracle-react-native.gif",
+    },
+  ],
+  books: [
+    {
+      title: BOOK.title,
+      href: BOOK.href,
+      dates: "July 2023 - May 2024",
+      active: true,
+      description: BOOK.description,
+      technologies: ["Pen", "Paper", "Keyboard", "Scrivener", "Apple Pages"],
+      links: [
+        {
+          type: "Read Online",
+          href: BOOK.href,
+          icon: <Icons.book className="size-3" />,
+        },
+        {
+          type: "Kindle",
+          href: BOOK.kindleUrl,
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "./journey.mp4",
+    },
+    {
+      title: "Full-Stack Starter Pack",
+      href: "https://expatriaonline.com",
+      dates: "Unreleased Thus Far",
+      active: true,
+      description:
+        "An interactive workbook that has over 20 interactive excercises to teach aspiring software engineers the fundamentals of system design, scrum-based sprint methodology, ux design & product management. It includes cheat sheets for JavaScript Array methods, TypeScript and more.",
+      technologies: ["Pen", "Paper", "Keyboard", "Scrivener", "Apple Pages"],
+      links: [],
+      image: "",
+      video: "./starter-pack.MOV",
     },
   ],
   leadership: [
