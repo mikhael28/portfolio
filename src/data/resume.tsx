@@ -1,6 +1,19 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
+export const BOOK = {
+  title: "Journey to the East; Post-COVID China",
+  shortTitle: "Journey to the East",
+  href: "/journey-to-the-east",
+  epubUrl: "/books/journey-to-the-east.epub",
+  coverUrl: "/books/journey-to-the-east-cover.jpg",
+  kindleUrl: "https://www.amazon.com/dp/B0CZDF9MNW",
+  // Where new readers (and "Start over") land: the "All Aboard the Chungking Express" chapter.
+  startHref: "chapter-2.xhtml",
+  description:
+    "My travelogue over 60 days in China, with an overview on modern culture, technology & a complete introduction to Imperial History from the Zhou to the Qing Dynasties.",
+} as const;
+
 export const DATA = {
   name: "Michael Nightingale",
   initials: "MN",
@@ -9,7 +22,7 @@ export const DATA = {
   description:
     "I'm a software engineer, writer & maker living in the Broadview neighborhood of Seattle.",
   summary:
-    "This website is a digital resume, portfolio of projects & open-source contributions, as well as a showcase for my non-technical side & blog. I have included links to my open-source projects on GitHub below, and invite you to review the source code and contribute to the projects. Some of my hobbies include playing sports like basketball, reading history, playing videogames like Fallout New Vegas & practicing my foreign languages.",
+    "This website is a digital resume, portfolio of projects & open-source contributions, as well as a showcase for my non-technical side & blog. I have included links to my open-source projects on GitHub below, and invite you to review the source code and contribute to the projects. Some of my hobbies include playing sports like basketball, reading history, playing videogames like Fallout New Vegas & practicing my foreign languages. I also wrote a book about my two months traveling through post-COVID China, which you can [read here](/journey-to-the-east).",
   avatarUrl: "/me-singapore.png",
   skills: [
     "React",
@@ -318,17 +331,21 @@ export const DATA = {
       video: "./gifs/tech-touchdown.gif",
     },
     {
-      title: "Journey to the East; Post-COVID China",
-      href: "https://www.amazon.com/dp/B0CZDF9MNW",
+      title: BOOK.title,
+      href: BOOK.href,
       dates: "July 2023 - May 2024",
       active: true,
-      description:
-        "My travelogue over 60 days in China, with an overview on modern culture, technology & a complete introduction to Imperial History from the Zhou to the Qing Dynasties.",
+      description: BOOK.description,
       technologies: ["Pen", "Paper", "Keyboard", "Scrivener", "Apple Pages"],
       links: [
         {
-          type: "Website",
-          href: "https://www.amazon.com/dp/B0CZDF9MNW",
+          type: "Read Online",
+          href: BOOK.href,
+          icon: <Icons.book className="size-3" />,
+        },
+        {
+          type: "Kindle",
+          href: BOOK.kindleUrl,
           icon: <Icons.globe className="size-3" />,
         },
       ],

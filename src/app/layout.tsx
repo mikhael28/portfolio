@@ -1,12 +1,16 @@
 import AnimatedBackground from "@/components/animated-background";
+import { HideOnRoute } from "@/components/hide-on-route";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { DATA } from "@/data/resume";
+import { BOOK, DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+
+// Routes that take over the whole viewport and bring their own controls.
+const FULLSCREEN_ROUTES = [BOOK.href];
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -57,11 +61,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6", fontSans.variable)}>
-        <AnimatedBackground />
+        <HideOnRoute paths={FULLSCREEN_ROUTES}>
+          <AnimatedBackground />
+        </HideOnRoute>
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
             {children}
-            <Navbar />
+            <HideOnRoute paths={FULLSCREEN_ROUTES}>
+              <Navbar />
+            </HideOnRoute>
           </TooltipProvider>
         </ThemeProvider>
       </body>

@@ -52,7 +52,20 @@ export default async function Page() {
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <div className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-            <Markdown>{DATA.summary}</Markdown>
+            <Markdown
+              components={{
+                a: ({ href = "", children }) =>
+                  href.startsWith("/") ? (
+                    <Link href={href}>{children}</Link>
+                  ) : (
+                    <a href={href} target="_blank" rel="noopener noreferrer">
+                      {children}
+                    </a>
+                  ),
+              }}
+            >
+              {DATA.summary}
+            </Markdown>
           </div>
         </BlurFade>
       </section>
